@@ -151,8 +151,35 @@ def apply_global_styles():
 /* Global Background and Modern Font */
 .stApp {
     background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
-    color: #ffffff;
-    font-family: 'Inter', sans-serif;
+        color: #ffffff;
+        /* Changed to a more modern font stack and increased base size */
+        font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        font-size: 18px; /* Increased from default (usually 16px) */
+}
+            
+[data-testid="stForm"], [data-testid="stChatMessage"] p {
+    font-size: 22px !important; /* Temporarily set higher to test */
+    line-height: 1.8; /* More spacing for easier reading */
+}
+            
+/* 1. Force Global Font (Georgia is very different from standard) */
+html, body, [class*="st-"], .stApp, p, div, span, label {
+    font-family: 'Georgia', 'Times New Roman', serif !important;
+    font-size: 20px !important;
+}
+
+/* 2. Target Chat Messages specifically (Courier looks like a legal typewriter) */
+[data-testid="stChatMessage"] p, [data-testid="stChatMessage"] div {
+    font-family: 'Courier New', Courier, monospace !important;
+    font-size: 24px !important; 
+    font-weight: 600 !important;
+    line-height: 1.6 !important;
+}
+
+/* 3. Target Form Labels and Inputs */
+[data-testid="stForm"] label, [data-testid="stForm"] input {
+    font-family: 'Verdana', sans-serif !important;
+    font-size: 22px !important;
 }
 
 /* Glassmorphism: Cards and Chat Bubbles */
