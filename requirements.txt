@@ -1,0 +1,10 @@
+streamlit>=1.28.0
+pandas
+sentence-transformers
+pymongo
+python-dotenv
+google-generativeai
+SpeechRecognition
+pydub
+google-genai
+gTTS
