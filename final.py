@@ -144,6 +144,53 @@ def register_user(username, password, email):
     users_collection.insert_one(user_data)
     return True, "Registration successful!"
 
+def apply_global_styles():
+    """Unified Professional UI with Zero-Indentation st.html"""
+    st.html("""
+<style>
+/* Global Background and Modern Font */
+.stApp {
+    background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%) !important;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+}
+
+/* Glassmorphism: Cards and Chat Bubbles */
+[data-testid="stForm"], [data-testid="stChatMessage"] {
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 20px !important;
+    padding: 25px !important;
+    transition: all 0.4s ease;
+}
+
+/* Hover Effects */
+[data-testid="stForm"]:hover, [data-testid="stChatMessage"]:hover {
+    transform: translateY(-5px);
+    border: 1px solid rgba(0, 242, 254, 0.4) !important;
+    box-shadow: 0 15px 35px rgba(0, 242, 254, 0.2);
+}
+
+/* Modern Button Styling */
+.stButton>button {
+    width: 100%;
+    border-radius: 30px;
+    background: linear-gradient(90deg, #1e3c72 0%, #2a5298 100%);
+    color: white !important;
+    border: none;
+    font-weight: 700;
+    transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.stButton>button:hover {
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    color: #000000 !important;
+    transform: scale(1.05);
+}
+</style>
+    """)
+
 def text_to_speech(text):
     """Converts text to speech and returns an HTML audio player"""
     try:
@@ -389,6 +436,7 @@ st.set_page_config(
 # ---------------------------
 def show_auth_page():
     """Display login/register page"""
+    apply_global_styles()
     st.markdown(
         "<h1 style='text-align: center;'>Legal Advisor</h1>",
         unsafe_allow_html=True
@@ -1036,7 +1084,7 @@ def user_quiz_panel():
 # ---------------------------
 def main_app():
     """Main application after login"""
-
+    apply_global_styles()
 
     # Your existing code continues...
     is_admin_user = st.session_state.user_data.get("is_admin", False)
