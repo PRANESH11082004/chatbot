@@ -23,6 +23,11 @@ from streamlit_autorefresh import st_autorefresh
 from streamlit_google_auth import Authenticate
 from bson.objectid import ObjectId
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import threading  # To send emails without freezing the app
+
 # Load environment variables
 load_dotenv()
 
@@ -248,6 +253,41 @@ def get_session_messages(session_id):
 
 
 # ---------------------------
+# Notification System (Email)
+# ---------------------------
+def send_email_thread(to_email, subject, body):
+    """Background thread to send email"""
+    sender_email = os.getenv("EMAIL_SENDER")
+    sender_password = os.getenv("EMAIL_PASSWORD")
+
+    if not sender_email or not sender_password:
+        print("⚠️ Email credentials missing in .env. Notification skipped.")
+        return
+
+    try:
+        msg = MIMEMultipart()
+        msg['From'] = sender_email
+        msg['To'] = to_email
+        msg['Subject'] = subject
+        msg.attach(MIMEText(body, 'html'))
+
+        server = smtplib.SMTP('smtp.gmail.com', 587)
+        server.starttls()
+        server.login(sender_email, sender_password)
+        server.send_message(msg)
+        server.quit()
+        print(f"📧 Email sent to {to_email}")
+    except Exception as e:
+        print(f"❌ Failed to send email: {e}")
+
+def send_notification(to_email, subject, body):
+    """Wrapper to run email sending in background"""
+    email_thread = threading.Thread(target=send_email_thread, args=(to_email, subject, body))
+    email_thread.start()
+
+
+
+# ---------------------------
 # Authentication Functions
 # ---------------------------
 def hash_password(password):
@@ -280,6 +320,20 @@ def register_user(username, password, email):
     }
     
     users_collection.insert_one(user_data)
+    # 📧 SEND WELCOME EMAIL
+    subject = "Welcome to Legal Advisor!"
+    body = f"""
+    <h3>Welcome, {username}!</h3>
+    <p>Thank you for registering with <b>Legal Advisor</b>.</p>
+    <p>You can now access:</p>
+    <ul>
+        <li>🤖 AI Legal Chat</li>
+        <li>📝 Knowledge Quizzes</li>
+        <li>📊 Progress Tracking</li>
+    </ul>
+    <p>Regards,<br>The Legal Advisor Team</p>
+    """
+    send_notification(email, subject, body)
     return True, "Registration successful!"
 
 
@@ -307,12 +361,23 @@ def register_google_user(username, email, profile_pic):
         }
         users_collection.insert_one(user_data)
         user = user_data
+
+        # 📧 SEND WELCOME EMAIL (Only for NEW users)
+        # This code sits inside the 'if' block
+        subject = "Welcome to Legal Advisor!"
+        body = f"<h3>Welcome {username}!</h3><p>Your Google account has been successfully linked.</p>"
+        send_notification(email, subject, body)
+
     else:
-        # Update last login and ensure profile pic is current
+        # Update last login and ensure profile pic is current in DATABASE
         users_collection.update_one(
             {"email": email},
             {"$set": {"last_login": datetime.now(), "profile_pic": profile_pic}}
         )
+        
+        # 🟢 CRITICAL FIX: Update the local variable too!
+        # This ensures the UI sees the new picture immediately without needing to relogin
+        user["profile_pic"] = profile_pic
     
     return True, user
 
@@ -1153,6 +1218,23 @@ def admin_quiz_panel():
                     }
                     if create_quiz(quiz_data):
                         st.success("Quiz created successfully!")
+                        # 📧 NEW: Notify all users about the new quiz
+                        client = get_mongo_client()
+                        if client:
+                            users = client[DB_NAME].users.find({}, {"email": 1, "username": 1})
+                            for u in users:
+                                if "email" in u:
+                                    subject = f"📝 New Quiz Alert: {quiz_title}"
+                                    body = f"""
+                                    <h3>New Challenge Available!</h3>
+                                    <p>Hello {u.get('username', 'User')},</p>
+                                    <p>A new quiz <b>'{quiz_title}'</b> has been added to the Legal Advisor.</p>
+                                    <p><b>Topic:</b> {quiz_category}<br>
+                                    <b>Difficulty:</b> {difficulty}</p>
+                                    <p>Log in now to test your knowledge!</p>
+                                    """
+                                    send_notification(u["email"], subject, body)
+                            st.toast("📧 Notification emails sent to all users!", icon="📨")
                         st.session_state.quiz_questions = []
                         st.rerun()
                     else:
@@ -1309,6 +1391,24 @@ def user_quiz_panel():
     """User interface for taking quizzes with live auto-refresh"""
     
     st.markdown("## 📝 Legal Knowledge Quiz")
+
+    # --- 🔔 NEW: Pending Quiz Alert System ---
+    if "quiz_alert_shown" not in st.session_state:
+        # Get total quizzes vs user results
+        all_quizzes = get_all_quizzes()
+        user_results = get_user_quiz_results(st.session_state.username)
+        
+        # Calculate Pending
+        attempted_ids = [str(r['quiz_id']) for r in user_results]
+        pending_count = sum(1 for q in all_quizzes if str(q['_id']) not in attempted_ids)
+        
+        if pending_count > 0:
+            st.toast(f"🔔 You have {pending_count} pending quizzes to attempt!", icon="📢")
+        else:
+            st.toast("🎉 You are all caught up! No pending quizzes.", icon="✅")
+            
+        st.session_state.quiz_alert_shown = True
+    # ------------------------------------------
 
     tab1, tab2, tab3 = st.tabs(["Available Quizzes", "My Results", "🏆 Leaderboard"])
 
