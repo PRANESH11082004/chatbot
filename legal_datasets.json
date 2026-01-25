@@ -1,479 +1,478 @@
 {
-  "Constitutional Law": [
-    {
-      "prompt": "What is the Constitution of India?",
-      "completion": "The Constitution of India is the supreme law of the country. It establishes the framework for governance, defines the powers and responsibilities of the legislative, executive, and judicial branches, and guarantees fundamental rights, duties, and the rule of law."
-    },
-    {
-      "prompt": "When did the Indian Constitution come into effect?",
-      "completion": "The Constitution of India came into effect on 26 January 1950, celebrated as Republic Day. This day marks India's transformation into a sovereign democratic republic with a constitutionally defined government structure."
-    },
-    {
-      "prompt": "Who is known as the father of the Indian Constitution?",
-      "completion": "Dr. B. R. Ambedkar is recognized as the father of the Indian Constitution for his pivotal role as Chairman of the Drafting Committee, ensuring social justice, equality, and rights for marginalized communities."
-    },
-    {
-      "prompt": "What is the Preamble of the Constitution?",
-      "completion": "The Preamble is the introductory statement of the Constitution that sets out its core values and objectives, declaring India as a Sovereign, Socialist, Secular, Democratic Republic and highlighting justice, liberty, equality, and fraternity."
-    },
-    {
-      "prompt": "What are Fundamental Rights?",
-      "completion": "Fundamental Rights are the basic human rights guaranteed under Part III of the Constitution. They include equality before law, freedom of speech, religion, protection from discrimination, and cultural and educational rights, enforceable in courts."
-    },
-    {
-      "prompt": "What are Directive Principles of State Policy?",
-      "completion": "Directive Principles of State Policy, in Part IV of the Constitution, provide guidelines for governance aimed at achieving socio-economic justice, equitable development, and welfare of citizens, although they are not legally enforceable."
-    },
-    {
-      "prompt": "What is the role of the President of India?",
-      "completion": "The President is the constitutional head of the state, performing ceremonial duties, appointing the Prime Minister, giving assent to bills, summoning and dissolving Parliament, and representing India internationally."
-    },
-    {
-      "prompt": "What is judicial review?",
-      "completion": "Judicial review is the power of the Supreme Court and High Courts to examine laws and executive actions to ensure compliance with the Constitution, safeguarding fundamental rights and maintaining constitutional supremacy."
-    },
-    {
-      "prompt": "What is Article 370?",
-      "completion": "Article 370 granted special autonomous status to Jammu and Kashmir, allowing it to have its own Constitution and legislative powers over internal matters. It was revoked in August 2019, integrating the state fully under Indian law."
-    },
-    {
-      "prompt": "What is Article 21?",
-      "completion": "Article 21 guarantees the right to life and personal liberty, stating that no person shall be deprived of life or liberty except according to a procedure established by law. Courts have expanded it to include rights to privacy, health, and a dignified life."
-    },
-    {
-      "prompt": "What is the structure of the Indian Constitution?",
-      "completion": "The Indian Constitution has a federal structure with a strong central government. It includes a Preamble, 25 parts, 448 articles, and 12 schedules, detailing the powers of the legislature, executive, judiciary, and rights of citizens."
-    },
-    {
-      "prompt": "What are Fundamental Duties?",
-      "completion": "Fundamental Duties, added by the 42nd Amendment in 1976, are moral obligations of citizens to promote patriotism, respect for the Constitution, protect the environment, and uphold harmony and the spirit of India."
-    },
-    {
-      "prompt": "What is the importance of the Preamble?",
-      "completion": "The Preamble outlines the guiding principles of the Constitution, reflecting the objectives of justice, liberty, equality, and fraternity. It serves as a lens to interpret constitutional provisions and law-making decisions."
-    },
-    {
-      "prompt": "What is the difference between Fundamental Rights and Directive Principles?",
-      "completion": "Fundamental Rights are legally enforceable guarantees for individuals, while Directive Principles are non-justiciable guidelines for the state to achieve social and economic welfare. Together, they balance rights and duties."
-    },
-    {
-      "prompt": "What is the significance of the 42nd Amendment?",
-      "completion": "The 42nd Amendment, passed in 1976, brought major changes including Fundamental Duties, altered the Preamble to include 'Secular' and 'Socialist', and strengthened the directive principles, emphasizing state-led development."
-    },
-    {
-      "prompt": "What are the types of Fundamental Rights?",
-      "completion": "Fundamental Rights include: Right to Equality (Articles 14-18), Right to Freedom (19-22), Right against Exploitation (23-24), Right to Freedom of Religion (25-28), Cultural and Educational Rights (29-30), and Right to Constitutional Remedies (Article 32)."
-    },
-    {
-      "prompt": "What is the Right to Constitutional Remedies?",
-      "completion": "The Right to Constitutional Remedies under Article 32 allows citizens to approach the Supreme Court to enforce Fundamental Rights. Courts can issue writs like habeas corpus, mandamus, prohibition, quo warranto, and certiorari."
-    },
-    {
-      "prompt": "What is the difference between Parliament and State Legislature?",
-      "completion": "Parliament is the national legislature comprising the President, Lok Sabha, and Rajya Sabha, responsible for central laws. State Legislatures, varying by state, handle laws for the state under subjects in the State List of the Constitution."
-    },
-    {
-      "prompt": "What is the procedure to amend the Constitution?",
-      "completion": "The Constitution can be amended by Parliament under Article 368 through procedures requiring a special majority in both houses. Some amendments also need ratification by half of the state legislatures, depending on the subjects affected."
-    },
-    {
-      "prompt": "What are Schedules in the Constitution?",
-      "completion": "Schedules in the Constitution categorize and organize details like allocation of powers, forms of oaths, lists of states, and governance structures. There are 12 schedules, covering topics such as the distribution of powers and tribal areas."
-    },
-    {
-      "prompt": "What is the difference between a Republic and a Monarchy?",
-      "completion": "A Republic, like India, has an elected head of state (President) and upholds democratic principles. A Monarchy has a hereditary ruler, where authority passes through family lineage, often with limited or ceremonial powers today."
-    },
-    {
-      "prompt": "What is the role of the Prime Minister in India?",
-      "completion": "The Prime Minister is the head of the government, leading the executive branch, forming policies, running the cabinet, implementing laws, and guiding legislative agendas in Parliament while being responsible to the legislature."
-    },
-    {
-      "prompt": "What are the powers of the Supreme Court?",
-      "completion": "The Supreme Court has powers of judicial review, protecting Fundamental Rights, resolving disputes between states and the center, interpreting the Constitution, and hearing appeals from lower courts, ensuring justice and constitutional compliance."
-    },
-    {
-      "prompt": "What is the Emergency Provision in India?",
-      "completion": "Emergency provisions (Articles 352, 356, 360) allow the President to declare national, state, or financial emergencies, temporarily altering governance, suspending certain rights, and empowering the central government to maintain security and stability."
-    },
-    {
-      "prompt": "What is the concept of Separation of Powers?",
-      "completion": "Separation of Powers divides government functions among the legislature (law-making), executive (law implementation), and judiciary (law interpretation) to prevent abuse of power and ensure checks and balances within the constitutional framework."
-    },
-    {
-      "prompt": "What is the concept of Secularism in India?",
-      "completion": "Secularism in India, as per the Constitution, ensures the state treats all religions equally, protects religious freedom, and does not favor any religion, promoting harmony, tolerance, and equality among diverse communities."
-    },
-    {
-      "prompt": "What is the role of the Election Commission of India?",
-      "completion": "The Election Commission is an autonomous body that conducts free and fair elections for Parliament, State Legislatures, and the President, regulates political parties, enforces election laws, and ensures democratic processes function smoothly."
-    },
-    {
-      "prompt": "What is the difference between unicameral and bicameral legislature?",
-      "completion": "A unicameral legislature has one legislative house, while a bicameral legislature has two (like India's Parliament with Lok Sabha and Rajya Sabha). Bicameral systems provide checks within the legislature and represent different groups or states."
-    },
-    {
-      "prompt": "What is the concept of Judicial Activism?",
-      "completion": "Judicial Activism refers to courts proactively interpreting the Constitution to protect rights, fill legislative gaps, and ensure justice, even if it involves challenging government actions or extending Fundamental Rights beyond literal text."
-    },
-    {
-      "prompt": "What are the basic features of the Indian Constitution?",
-      "completion": "Basic features include supremacy of the Constitution, rule of law, separation of powers, fundamental rights, federalism, secularism, democracy, judicial review, and the balance of powers between center and states, ensuring the Constitution cannot be destroyed."
-    }
-  ],
-  "Civil Law": [
-    {
-      "prompt": "What is Civil Law?",
-      "completion": "Civil Law governs disputes between individuals, organizations, or institutions. It focuses on private rights and remedies such as compensation, restitution, and enforcement of contracts, rather than criminal penalties, aiming to resolve conflicts peacefully."
-    },
-    {
-      "prompt": "What is a contract?",
-      "completion": "A contract is a legally enforceable agreement between two or more parties creating mutual obligations. It requires offer, acceptance, consideration, lawful object, and competent parties, and its breach can lead to remedies such as damages or specific performance."
-    },
-    {
-      "prompt": "What is breach of contract?",
-      "completion": "Breach of contract occurs when one party fails to fulfill agreed obligations without lawful excuse. Remedies include damages (monetary compensation), specific performance (execution of obligations), or contract rescission, ensuring fairness and accountability."
-    },
-    {
-      "prompt": "What is the Indian Contract Act?",
-      "completion": "The Indian Contract Act, 1872 governs contracts in India, defining rules for formation, performance, and enforcement. It ensures parties have legal recourse in case of breach and clarifies obligations, rights, and remedies under civil law."
-    },
-    {
-      "prompt": "What is tort law?",
-      "completion": "Tort law addresses civil wrongs causing harm or loss to individuals, providing remedies, usually monetary compensation. It covers negligence, defamation, nuisance, and other wrongful acts, focusing on restoring victims rather than punishing offenders."
-    },
-    {
-      "prompt": "What is negligence in civil law?",
-      "completion": "Negligence is a failure to exercise reasonable care, causing harm to another. To establish it, the plaintiff must show duty of care, breach, causation, and resulting damages. It is a cornerstone concept in tort law and civil liability cases."
-    },
-    {
-      "prompt": "What is defamation?",
-      "completion": "Defamation is the communication of false statements harming a person's reputation. Libel refers to written defamation, while slander refers to spoken. Victims may seek damages or injunctions to prevent further harm."
-    },
-    {
-      "prompt": "What are damages in civil law?",
-      "completion": "Damages are monetary compensation awarded to a party who suffered loss due to another's breach of duty or wrongful act. They aim to restore the injured party to the position they would have been in if the wrongdoing had not occurred."
-    },
-    {
-      "prompt": "What is specific performance?",
-      "completion": "Specific performance is a legal remedy where a court orders a party to perform their contractual obligations rather than paying damages. It is commonly used when monetary compensation is inadequate, such as for unique goods or real estate transactions."
-    },
-    {
-      "prompt": "What is the limitation period for filing a civil suit?",
-      "completion": "The Limitation Act, 1963 prescribes time limits for civil suits to ensure timely justice. Generally, it is three years for most claims, starting from when the cause of action arises, with certain claims like recovery of land having different periods."
-    },
-    {
-      "prompt": "What is a promissory note?",
-      "completion": "A promissory note is a written financial instrument containing an unconditional promise by one party to pay a specified sum to another at a predetermined date or on demand, governed by the Negotiable Instruments Act, 1881."
-    },
-    {
-      "prompt": "What is an indemnity?",
-      "completion": "Indemnity is a contractual obligation where one party promises to compensate another for loss or damage caused by a specified event. It protects the indemnified party against financial or legal consequences."
-    },
-    {
-      "prompt": "What is a guarantee?",
-      "completion": "A guarantee is a contractual promise by a third party (guarantor) to fulfill the obligations of a debtor if the debtor fails to do so. It differs from indemnity because it involves secondary liability contingent on the debtor's default."
-    },
-    {
-      "prompt": "What is bailment?",
-      "completion": "Bailment is a legal relationship where the owner of goods (bailor) delivers them to another (bailee) for a specific purpose under a contract, with the goods to be returned or otherwise disposed of according to instructions."
-    },
-    {
-      "prompt": "What is agency in civil law?",
-      "completion": "Agency is a relationship in which one person (agent) acts on behalf of another (principal) to create legal relations with third parties. The principal is bound by acts of the agent performed within the scope of authority."
-    },
-    {
-      "prompt": "What is property law?",
-      "completion": "Property law governs ownership and rights over movable and immovable property. It includes rules regarding acquisition, transfer, possession, use, and protection of property, ensuring clarity and legal protection for owners and users."
-    },
-    {
-      "prompt": "What is easement in property law?",
-      "completion": "An easement is a legal right to use another person's land for a specific purpose, such as a right of way or drainage. It is a property interest that benefits one property while burdening another."
-    },
-    {
-      "prompt": "What is a will?",
-      "completion": "A will is a legal document in which a person expresses their wishes regarding the distribution of their property after death. It ensures that the testator's property is transferred according to their instructions, subject to legal formalities."
-    },
-    {
-      "prompt": "What is intestate succession?",
-      "completion": "Intestate succession refers to the distribution of a deceased person's estate who died without a valid will. The law determines heirs and shares according to personal laws or the Indian Succession Act, ensuring legal distribution of property."
-    },
-    {
-      "prompt": "What is partnership law?",
-      "completion": "Partnership law governs the relationship between partners in a business. The Indian Partnership Act, 1932 defines rights, duties, formation, dissolution, and liabilities of partners, ensuring fair operation of partnerships."
-    },
-    {
-      "prompt": "What is a joint venture?",
-      "completion": "A joint venture is a business arrangement where two or more parties collaborate for a specific project or business purpose, sharing profits, losses, and control, typically formalized through a contract or agreement."
-    },
-    {
-      "prompt": "What is the difference between movable and immovable property?",
-      "completion": "Movable property refers to assets that can be transported, like goods or vehicles. Immovable property refers to land, buildings, or structures permanently attached to land. Legal rules for transfer, registration, and inheritance differ for each type."
-    },
-    {
-      "prompt": "What is consideration in a contract?",
-      "completion": "Consideration is something of value exchanged between parties in a contract. It is a mandatory element for a valid contract, representing the price or promise that induces parties to enter into the agreement."
-    },
-    {
-      "prompt": "What is a lease agreement?",
-      "completion": "A lease agreement is a contract where the owner of property (lessor) grants another (lessee) the right to use property for a defined period in exchange for rent, with rights and duties outlined to protect both parties."
-    },
-    {
-      "prompt": "What is restitution?",
-      "completion": "Restitution is a legal remedy requiring a party who has received a benefit unfairly to return it to prevent unjust enrichment. It aims to restore the status quo prior to the wrongful act."
-    },
-    {
-      "prompt": "What is quantum meruit?",
-      "completion": "Quantum meruit is a principle where a person is entitled to reasonable payment for services rendered, even without a formal contract, based on the value of work done and benefit received."
-    },
-    {
-      "prompt": "What is a negotiable instrument?",
-      "completion": "A negotiable instrument is a written document guaranteeing payment of a specific amount to the bearer or order, transferable by endorsement or delivery. Examples include promissory notes, bills of exchange, and cheques."
-    },
-    {
-      "prompt": "What is consideration of capacity to contract?",
-      "completion": "Capacity to contract ensures that only competent persons (of legal age, sound mind, and not disqualified by law) can enter into valid contracts. Contracts with minors or legally incapacitated persons are generally void or voidable."
-    },
-    {
-      "prompt": "What is restitution in case of breach of contract?",
-      "completion": "In contract law, restitution involves restoring benefits or compensation to the aggrieved party when a contract is breached. It prevents unjust enrichment and ensures fairness between contracting parties."
-    }
-  ],
-  "Environmental Law": [
-    {
-      "prompt": "What is Environmental Law?",
-      "completion": "Environmental Law regulates human activities to protect natural resources, biodiversity, and public health. It covers pollution control, sustainable development, wildlife protection, and climate change policies to ensure ecological balance."
-    },
-    {
-      "prompt": "What is the Environment Protection Act?",
-      "completion": "The Environment Protection Act, 1986 provides a comprehensive framework for central government coordination in environmental protection, including regulations for pollution control, hazardous substances, and environmental clearances for industries."
-    },
-    {
-      "prompt": "What is the National Green Tribunal?",
-      "completion": "The National Green Tribunal (NGT), established in 2010, is a specialized judicial body to handle environmental disputes, enforce laws, and ensure speedy justice. It can impose fines, penalties, or remedial measures for environmental harm."
-    },
-    {
-      "prompt": "What is the polluter pays principle?",
-      "completion": "The polluter pays principle holds that entities responsible for pollution must bear the cost of preventing or remedying environmental damage. It incentivizes sustainable practices and ensures accountability for environmental harm."
-    },
-    {
-      "prompt": "What is the Wildlife Protection Act?",
-      "completion": "The Wildlife Protection Act, 1972 provides legal protection to animals, birds, and plants, establishes sanctuaries and national parks, and regulates hunting and trade of wildlife to conserve biodiversity."
-    },
-    {
-      "prompt": "What is the Forest Conservation Act?",
-      "completion": "The Forest Conservation Act, 1980 regulates diversion of forest land for non-forest purposes, requiring central government approval. It protects forest ecosystems, promotes sustainable use, and prevents illegal deforestation."
-    },
-    {
-      "prompt": "What is an Environmental Impact Assessment?",
-      "completion": "Environmental Impact Assessment (EIA) evaluates potential environmental consequences of projects before approval, considering social, ecological, and economic impacts to minimize damage and promote sustainable development."
-    },
-    {
-      "prompt": "What is the Air Pollution Act?",
-      "completion": "The Air (Prevention and Control of Pollution) Act, 1981 provides measures to control air pollution, establish pollution control boards, and enforce standards for industries, vehicles, and urban areas to protect public health and the environment."
-    },
-    {
-      "prompt": "What is the Water Pollution Act?",
-      "completion": "The Water (Prevention and Control of Pollution) Act, 1974 aims to prevent and control water pollution, maintain water quality, and authorize regulatory authorities to monitor, prevent, and remediate contamination in rivers, lakes, and other water bodies."
-    },
-    {
-      "prompt": "What is sustainable development?",
-      "completion": "Sustainable development meets current needs without compromising future generations, balancing economic growth, social equity, and environmental protection. It encourages renewable resources, conservation, and responsible consumption."
-    },
-    {
-      "prompt": "What is biodiversity conservation?",
-      "completion": "Biodiversity conservation involves protecting species, habitats, and ecosystems. Laws like the Wildlife Protection Act and Biodiversity Act 2002 promote sustainable use, genetic diversity, and protection of endangered species."
-    },
-    {
-      "prompt": "What is the Air Quality Index?",
-      "completion": "The Air Quality Index (AQI) measures air pollution levels, indicating health risks to the population. It guides regulatory actions, public awareness, and policy decisions to reduce pollution and improve air quality."
-    },
-    {
-      "prompt": "What is hazardous waste management?",
-      "completion": "Hazardous waste management regulates generation, storage, transport, and disposal of dangerous materials to prevent environmental contamination, health risks, and ensures compliance with the Hazardous and Other Wastes (Management and Transboundary Movement) Rules."
-    },
-    {
-      "prompt": "What is the Biodiversity Act?",
-      "completion": "The Biodiversity Act, 2002 aims to conserve biological resources, ensure sustainable use, and equitable sharing of benefits arising from biological resources and knowledge, involving local communities in conservation efforts."
-    },
-    {
-      "prompt": "What are environmental standards?",
-      "completion": "Environmental standards are regulatory limits on pollutants, emissions, and discharges into air, water, or soil. They ensure compliance with laws, protect public health, and maintain ecological balance."
-    },
-    {
-      "prompt": "What is climate change law?",
-      "completion": "Climate change law includes policies and regulations to mitigate greenhouse gas emissions, promote renewable energy, implement adaptation strategies, and fulfill international commitments under agreements like the Paris Accord."
-    },
-    {
-      "prompt": "What is the role of the Central Pollution Control Board?",
-      "completion": "The Central Pollution Control Board (CPCB) monitors environmental quality, enforces pollution control measures, provides technical guidance, and coordinates with state boards to ensure compliance with environmental laws."
-    },
-    {
-      "prompt": "What is environmental litigation?",
-      "completion": "Environmental litigation involves legal action to enforce environmental laws, address pollution, conserve natural resources, and protect public health. Courts can impose fines, order remediation, or prevent harmful activities."
-    },
-    {
-      "prompt": "What is environmental audit?",
-      "completion": "Environmental audit is a systematic evaluation of a company's compliance with environmental laws, assessing its impact on natural resources, emissions, waste management, and sustainability practices."
-    },
-    {
-      "prompt": "What is the concept of eco-friendly technology?",
-      "completion": "Eco-friendly technology minimizes environmental impact by reducing emissions, conserving resources, and promoting sustainable production and consumption, helping businesses and society achieve environmental goals."
-    },
-    {
-      "prompt": "What is afforestation?",
-      "completion": "Afforestation is the process of planting trees on barren or deforested land to restore ecosystems, combat climate change, and prevent soil erosion, regulated under the Forest Conservation Act and other policies."
-    },
-    {
-      "prompt": "What is waste management?",
-      "completion": "Waste management involves collection, segregation, recycling, treatment, and disposal of waste to minimize environmental pollution, ensure public health, and promote sustainable resource use."
-    },
-    {
-      "prompt": "What is the Environmental Court?",
-      "completion": "Environmental Courts or Tribunals, like the NGT, adjudicate cases involving environmental damage, pollution, and compliance with laws, ensuring timely justice and enforcement of environmental standards."
-    },
-    {
-      "prompt": "What is environmental clearance?",
-      "completion": "Environmental clearance is official approval for projects affecting the environment, ensuring compliance with regulations, EIAs, and sustainable practices before construction or operation begins."
-    },
-    {
-      "prompt": "What is water conservation law?",
-      "completion": "Water conservation laws regulate usage, promote efficient irrigation, prevent over-extraction, and ensure sustainable supply, protecting ecosystems, agriculture, and drinking water resources."
-    },
-    {
-      "prompt": "What is the concept of carbon credits?",
-      "completion": "Carbon credits are tradable certificates representing emission reductions. Companies can earn or buy credits to offset carbon emissions, promoting clean energy and compliance with climate change policies."
-    },
-    {
-      "prompt": "What is the Noise Pollution Act?",
-      "completion": "The Noise Pollution (Regulation and Control) Rules, 2000 control noise levels in residential, industrial, and commercial areas, protecting citizens' health and preventing environmental disturbances."
-    },
-    {
-      "prompt": "What is sustainable urban development?",
-      "completion": "Sustainable urban development integrates efficient resource use, green infrastructure, waste management, pollution control, and equitable housing to ensure cities grow in an environmentally and socially responsible manner."
-    },
-    {
-      "prompt": "What is renewable energy law?",
-      "completion": "Renewable energy law promotes generation, usage, and incentives for clean energy sources like solar, wind, and biomass, reducing dependence on fossil fuels and mitigating environmental damage."
-    }
-  ],
-  "Labor Law": [
-    {
-      "prompt": "What is Labor Law?",
-      "completion": "Labor Law governs relations between employers and employees, ensuring fair wages, safe working conditions, social security, dispute resolution, and protection of workers' rights under statutory and contractual frameworks."
-    },
-    {
-      "prompt": "What is the Minimum Wages Act?",
-      "completion": "The Minimum Wages Act, 1948 ensures employers pay workers minimum compensation for work performed, preventing exploitation and maintaining social equity in wages across different sectors and regions."
-    },
-    {
-      "prompt": "What is the Industrial Disputes Act?",
-      "completion": "The Industrial Disputes Act, 1947 provides mechanisms for resolving disputes between employers and employees through negotiation, conciliation, arbitration, and adjudication to maintain industrial peace."
-    },
-    {
-      "prompt": "What is the Employees' Provident Fund?",
-      "completion": "The Employees' Provident Fund (EPF) under the EPF Act, 1952 provides compulsory retirement savings for employees, ensuring financial security and a corpus for post-retirement life."
-    },
-    {
-      "prompt": "What is the Factories Act?",
-      "completion": "The Factories Act, 1948 regulates working conditions, health, safety, welfare, hours, and leave provisions in factories to protect workers and ensure safe, humane, and productive work environments."
-    },
-    {
-      "prompt": "What is wrongful termination?",
-      "completion": "Wrongful termination occurs when an employee is dismissed unlawfully or in breach of contract, labor laws, or principles of natural justice, giving the employee legal grounds for remedies or reinstatement."
-    },
-    {
-      "prompt": "What is the Payment of Gratuity Act?",
-      "completion": "The Payment of Gratuity Act, 1972 provides gratuity payment to employees who have completed five or more years of continuous service, ensuring financial reward upon retirement, resignation, or termination."
-    },
-    {
-      "prompt": "What is maternity leave in India?",
-      "completion": "The Maternity Benefit Act, 1961 (amended 2017) provides 26 weeks of paid leave for women employees, including work-from-home provisions, to support maternal and child health and promote gender equality in workplaces."
-    },
-    {
-      "prompt": "What is collective bargaining?",
-      "completion": "Collective bargaining is a negotiation process between employers and employee representatives (often trade unions) to determine employment terms, wages, and working conditions, fostering cooperation and dispute resolution."
-    },
-    {
-      "prompt": "What is the Shops and Establishments Act?",
-      "completion": "The Shops and Establishments Act regulates working conditions in shops, offices, and commercial establishments, covering working hours, holidays, rest intervals, overtime, and employee rights."
-    },
-    {
-      "prompt": "What is the Trade Unions Act?",
-      "completion": "The Trade Unions Act, 1926 governs the registration, rights, and duties of trade unions, promoting organized labor, protecting workers' collective interests, and regulating industrial relations."
-    },
-    {
-      "prompt": "What is industrial safety law?",
-      "completion": "Industrial safety laws establish guidelines for workplace safety, accident prevention, hazard management, and compliance with statutory requirements under the Factories Act and related regulations."
-    },
-    {
-      "prompt": "What is the Equal Remuneration Act?",
-      "completion": "The Equal Remuneration Act, 1976 ensures equal pay for men and women performing similar work, preventing gender discrimination and promoting fair employment practices."
-    },
-    {
-      "prompt": "What is the Apprentices Act?",
-      "completion": "The Apprentices Act, 1961 regulates the training of apprentices in industries, providing practical experience, skill development, and compliance with labor laws for workforce enhancement."
-    },
-    {
-      "prompt": "What is employment contract law?",
-      "completion": "Employment contracts define terms of employment including duties, compensation, working hours, and termination. They form a legally binding agreement protecting both employer and employee rights."
-    },
-    {
-      "prompt": "What is social security in labor law?",
-      "completion": "Social security includes statutory benefits like provident fund, gratuity, maternity leave, health insurance, and pensions, providing financial protection and welfare support to workers."
-    },
-    {
-      "prompt": "What is the Contract Labour Act?",
-      "completion": "The Contract Labour (Regulation and Abolition) Act, 1970 regulates employment of contract labor, ensuring fair wages, working conditions, welfare measures, and prohibition in certain establishments."
-    },
-    {
-      "prompt": "What is workmen's compensation?",
-      "completion": "Workmen's compensation under the Employees' Compensation Act, 1923 provides financial compensation for injuries or death arising out of employment, ensuring protection and support for affected workers and families."
-    },
-    {
-      "prompt": "What is the Maternity Benefit Rules?",
-      "completion": "The Maternity Benefit Rules detail eligibility, duration, leave benefits, nursing breaks, and employer obligations under the Maternity Benefit Act to safeguard women employees during maternity."
-    },
-    {
-      "prompt": "What is the role of labor courts?",
-      "completion": "Labor courts and industrial tribunals adjudicate disputes between employers and employees, including wage claims, unfair dismissal, and compliance with labor laws, ensuring speedy and just resolution."
-    },
-    {
-      "prompt": "What is the Employees State Insurance Act?",
-      "completion": "The Employees' State Insurance Act, 1948 provides medical care, cash benefits, maternity, disability, and dependent benefits for employees in case of sickness, injury, or death due to employment."
-    },
-    {
-      "prompt": "What is sexual harassment law at workplace?",
-      "completion": "The Sexual Harassment of Women at Workplace (Prevention, Prohibition, and Redressal) Act, 2013 mandates safe working environments, complaint mechanisms, and legal protection against harassment."
-    },
-    {
-      "prompt": "What is child labor law?",
-      "completion": "Child labor laws, primarily under the Child and Adolescent Labour (Prohibition and Regulation) Act, 1986, prohibit employment of children below 14 years and regulate conditions for adolescents, ensuring protection and education."
-    },
-    {
-      "prompt": "What is working hours regulation?",
-      "completion": "Working hours are regulated under the Factories Act and Shops & Establishments Acts to prevent overwork, ensure rest intervals, and protect workers' health, usually limiting to 8-9 hours per day and 48 hours per week."
-    },
-    {
-      "prompt": "What is industrial dispute resolution?",
-      "completion": "Industrial dispute resolution involves negotiation, conciliation, arbitration, and adjudication between employers and employees, aiming to maintain industrial peace, protect rights, and prevent strikes or lockouts."
-    },
-    {
-      "prompt": "What is trade union recognition?",
-      "completion": "Trade union recognition is formal acknowledgment by employers or statutory authorities, granting a union the authority to negotiate and represent workers, essential for collective bargaining and labor rights protection."
-    },
-    {
-      "prompt": "What is the importance of labor law compliance?",
-      "completion": "Compliance ensures legal adherence, protection of worker rights, avoidance of penalties, promotion of safe working environments, and corporate social responsibility, fostering trust and sustainable business operations."
-    },
-    {
-      "prompt": "What is overtime pay law?",
-      "completion": "Overtime pay regulations mandate additional compensation for hours worked beyond standard limits, ensuring fair wages, preventing exploitation, and complying with labor protection laws."
-    },
-    {
-      "prompt": "What is the role of the labor inspector?",
-      "completion": "Labor inspectors enforce labor laws, inspect establishments, ensure compliance with safety, wages, working hours, welfare provisions, and report violations, safeguarding workers' rights and workplace standards."
-    }
-  
-  ]
+    "Constitutional Law": [
+        {
+            "prompt": "What is the Constitution of India?",
+            "completion": "The Constitution of India is the supreme law of the country. It establishes the framework for governance, defines the powers and responsibilities of the legislative, executive, and judicial branches, and guarantees fundamental rights, duties, and the rule of law."
+        },
+        {
+            "prompt": "When did the Indian Constitution come into effect?",
+            "completion": "The Constitution of India came into effect on 26 January 1950, celebrated as Republic Day. This day marks India's transformation into a sovereign democratic republic with a constitutionally defined government structure."
+        },
+        {
+            "prompt": "Who is known as the father of the Indian Constitution?",
+            "completion": "Dr. B. R. Ambedkar is recognized as the father of the Indian Constitution for his pivotal role as Chairman of the Drafting Committee, ensuring social justice, equality, and rights for marginalized communities."
+        },
+        {
+            "prompt": "What is the Preamble of the Constitution?",
+            "completion": "The Preamble is the introductory statement of the Constitution that sets out its core values and objectives, declaring India as a Sovereign, Socialist, Secular, Democratic Republic and highlighting justice, liberty, equality, and fraternity."
+        },
+        {
+            "prompt": "What are Fundamental Rights?",
+            "completion": "Fundamental Rights are the basic human rights guaranteed under Part III of the Constitution. They include equality before law, freedom of speech, religion, protection from discrimination, and cultural and educational rights, enforceable in courts."
+        },
+        {
+            "prompt": "What are Directive Principles of State Policy?",
+            "completion": "Directive Principles of State Policy, in Part IV of the Constitution, provide guidelines for governance aimed at achieving socio-economic justice, equitable development, and welfare of citizens, although they are not legally enforceable."
+        },
+        {
+            "prompt": "What is the role of the President of India?",
+            "completion": "The President is the constitutional head of the state, performing ceremonial duties, appointing the Prime Minister, giving assent to bills, summoning and dissolving Parliament, and representing India internationally."
+        },
+        {
+            "prompt": "What is judicial review?",
+            "completion": "Judicial review is the power of the Supreme Court and High Courts to examine laws and executive actions to ensure compliance with the Constitution, safeguarding fundamental rights and maintaining constitutional supremacy."
+        },
+        {
+            "prompt": "What is Article 370?",
+            "completion": "Article 370 granted special autonomous status to Jammu and Kashmir, allowing it to have its own Constitution and legislative powers over internal matters. It was revoked in August 2019, integrating the state fully under Indian law."
+        },
+        {
+            "prompt": "What is Article 21?",
+            "completion": "Article 21 guarantees the right to life and personal liberty, stating that no person shall be deprived of life or liberty except according to a procedure established by law. Courts have expanded it to include rights to privacy, health, and a dignified life."
+        },
+        {
+            "prompt": "What is the structure of the Indian Constitution?",
+            "completion": "The Indian Constitution has a federal structure with a strong central government. It includes a Preamble, 25 parts, 448 articles, and 12 schedules, detailing the powers of the legislature, executive, judiciary, and rights of citizens."
+        },
+        {
+            "prompt": "What are Fundamental Duties?",
+            "completion": "Fundamental Duties, added by the 42nd Amendment in 1976, are moral obligations of citizens to promote patriotism, respect for the Constitution, protect the environment, and uphold harmony and the spirit of India."
+        },
+        {
+            "prompt": "What is the importance of the Preamble?",
+            "completion": "The Preamble outlines the guiding principles of the Constitution, reflecting the objectives of justice, liberty, equality, and fraternity. It serves as a lens to interpret constitutional provisions and law-making decisions."
+        },
+        {
+            "prompt": "What is the difference between Fundamental Rights and Directive Principles?",
+            "completion": "Fundamental Rights are legally enforceable guarantees for individuals, while Directive Principles are non-justiciable guidelines for the state to achieve social and economic welfare. Together, they balance rights and duties."
+        },
+        {
+            "prompt": "What is the significance of the 42nd Amendment?",
+            "completion": "The 42nd Amendment, passed in 1976, brought major changes including Fundamental Duties, altered the Preamble to include 'Secular' and 'Socialist', and strengthened the directive principles, emphasizing state-led development."
+        },
+        {
+            "prompt": "What are the types of Fundamental Rights?",
+            "completion": "Fundamental Rights include: Right to Equality (Articles 14-18), Right to Freedom (19-22), Right against Exploitation (23-24), Right to Freedom of Religion (25-28), Cultural and Educational Rights (29-30), and Right to Constitutional Remedies (Article 32)."
+        },
+        {
+            "prompt": "What is the Right to Constitutional Remedies?",
+            "completion": "The Right to Constitutional Remedies under Article 32 allows citizens to approach the Supreme Court to enforce Fundamental Rights. Courts can issue writs like habeas corpus, mandamus, prohibition, quo warranto, and certiorari."
+        },
+        {
+            "prompt": "What is the difference between Parliament and State Legislature?",
+            "completion": "Parliament is the national legislature comprising the President, Lok Sabha, and Rajya Sabha, responsible for central laws. State Legislatures, varying by state, handle laws for the state under subjects in the State List of the Constitution."
+        },
+        {
+            "prompt": "What is the procedure to amend the Constitution?",
+            "completion": "The Constitution can be amended by Parliament under Article 368 through procedures requiring a special majority in both houses. Some amendments also need ratification by half of the state legislatures, depending on the subjects affected."
+        },
+        {
+            "prompt": "What are Schedules in the Constitution?",
+            "completion": "Schedules in the Constitution categorize and organize details like allocation of powers, forms of oaths, lists of states, and governance structures. There are 12 schedules, covering topics such as the distribution of powers and tribal areas."
+        },
+        {
+            "prompt": "What is the difference between a Republic and a Monarchy?",
+            "completion": "A Republic, like India, has an elected head of state (President) and upholds democratic principles. A Monarchy has a hereditary ruler, where authority passes through family lineage, often with limited or ceremonial powers today."
+        },
+        {
+            "prompt": "What is the role of the Prime Minister in India?",
+            "completion": "The Prime Minister is the head of the government, leading the executive branch, forming policies, running the cabinet, implementing laws, and guiding legislative agendas in Parliament while being responsible to the legislature."
+        },
+        {
+            "prompt": "What are the powers of the Supreme Court?",
+            "completion": "The Supreme Court has powers of judicial review, protecting Fundamental Rights, resolving disputes between states and the center, interpreting the Constitution, and hearing appeals from lower courts, ensuring justice and constitutional compliance."
+        },
+        {
+            "prompt": "What is the Emergency Provision in India?",
+            "completion": "Emergency provisions (Articles 352, 356, 360) allow the President to declare national, state, or financial emergencies, temporarily altering governance, suspending certain rights, and empowering the central government to maintain security and stability."
+        },
+        {
+            "prompt": "What is the concept of Separation of Powers?",
+            "completion": "Separation of Powers divides government functions among the legislature (law-making), executive (law implementation), and judiciary (law interpretation) to prevent abuse of power and ensure checks and balances within the constitutional framework."
+        },
+        {
+            "prompt": "What is the concept of Secularism in India?",
+            "completion": "Secularism in India, as per the Constitution, ensures the state treats all religions equally, protects religious freedom, and does not favor any religion, promoting harmony, tolerance, and equality among diverse communities."
+        },
+        {
+            "prompt": "What is the role of the Election Commission of India?",
+            "completion": "The Election Commission is an autonomous body that conducts free and fair elections for Parliament, State Legislatures, and the President, regulates political parties, enforces election laws, and ensures democratic processes function smoothly."
+        },
+        {
+            "prompt": "What is the difference between unicameral and bicameral legislature?",
+            "completion": "A unicameral legislature has one legislative house, while a bicameral legislature has two (like India's Parliament with Lok Sabha and Rajya Sabha). Bicameral systems provide checks within the legislature and represent different groups or states."
+        },
+        {
+            "prompt": "What is the concept of Judicial Activism?",
+            "completion": "Judicial Activism refers to courts proactively interpreting the Constitution to protect rights, fill legislative gaps, and ensure justice, even if it involves challenging government actions or extending Fundamental Rights beyond literal text."
+        },
+        {
+            "prompt": "What are the basic features of the Indian Constitution?",
+            "completion": "Basic features include supremacy of the Constitution, rule of law, separation of powers, fundamental rights, federalism, secularism, democracy, judicial review, and the balance of powers between center and states, ensuring the Constitution cannot be destroyed."
+        }
+    ],
+    "Civil Law": [
+        {
+            "prompt": "What is Civil Law?",
+            "completion": "Civil Law governs disputes between individuals, organizations, or institutions. It focuses on private rights and remedies such as compensation, restitution, and enforcement of contracts, rather than criminal penalties, aiming to resolve conflicts peacefully."
+        },
+        {
+            "prompt": "What is a contract?",
+            "completion": "A contract is a legally enforceable agreement between two or more parties creating mutual obligations. It requires offer, acceptance, consideration, lawful object, and competent parties, and its breach can lead to remedies such as damages or specific performance."
+        },
+        {
+            "prompt": "What is breach of contract?",
+            "completion": "Breach of contract occurs when one party fails to fulfill agreed obligations without lawful excuse. Remedies include damages (monetary compensation), specific performance (execution of obligations), or contract rescission, ensuring fairness and accountability."
+        },
+        {
+            "prompt": "What is the Indian Contract Act?",
+            "completion": "The Indian Contract Act, 1872 governs contracts in India, defining rules for formation, performance, and enforcement. It ensures parties have legal recourse in case of breach and clarifies obligations, rights, and remedies under civil law."
+        },
+        {
+            "prompt": "What is tort law?",
+            "completion": "Tort law addresses civil wrongs causing harm or loss to individuals, providing remedies, usually monetary compensation. It covers negligence, defamation, nuisance, and other wrongful acts, focusing on restoring victims rather than punishing offenders."
+        },
+        {
+            "prompt": "What is negligence in civil law?",
+            "completion": "Negligence is a failure to exercise reasonable care, causing harm to another. To establish it, the plaintiff must show duty of care, breach, causation, and resulting damages. It is a cornerstone concept in tort law and civil liability cases."
+        },
+        {
+            "prompt": "What is defamation?",
+            "completion": "Defamation is the communication of false statements harming a person's reputation. Libel refers to written defamation, while slander refers to spoken. Victims may seek damages or injunctions to prevent further harm."
+        },
+        {
+            "prompt": "What are damages in civil law?",
+            "completion": "Damages are monetary compensation awarded to a party who suffered loss due to another's breach of duty or wrongful act. They aim to restore the injured party to the position they would have been in if the wrongdoing had not occurred."
+        },
+        {
+            "prompt": "What is specific performance?",
+            "completion": "Specific performance is a legal remedy where a court orders a party to perform their contractual obligations rather than paying damages. It is commonly used when monetary compensation is inadequate, such as for unique goods or real estate transactions."
+        },
+        {
+            "prompt": "What is the limitation period for filing a civil suit?",
+            "completion": "The Limitation Act, 1963 prescribes time limits for civil suits to ensure timely justice. Generally, it is three years for most claims, starting from when the cause of action arises, with certain claims like recovery of land having different periods."
+        },
+        {
+            "prompt": "What is a promissory note?",
+            "completion": "A promissory note is a written financial instrument containing an unconditional promise by one party to pay a specified sum to another at a predetermined date or on demand, governed by the Negotiable Instruments Act, 1881."
+        },
+        {
+            "prompt": "What is an indemnity?",
+            "completion": "Indemnity is a contractual obligation where one party promises to compensate another for loss or damage caused by a specified event. It protects the indemnified party against financial or legal consequences."
+        },
+        {
+            "prompt": "What is a guarantee?",
+            "completion": "A guarantee is a contractual promise by a third party (guarantor) to fulfill the obligations of a debtor if the debtor fails to do so. It differs from indemnity because it involves secondary liability contingent on the debtor's default."
+        },
+        {
+            "prompt": "What is bailment?",
+            "completion": "Bailment is a legal relationship where the owner of goods (bailor) delivers them to another (bailee) for a specific purpose under a contract, with the goods to be returned or otherwise disposed of according to instructions."
+        },
+        {
+            "prompt": "What is agency in civil law?",
+            "completion": "Agency is a relationship in which one person (agent) acts on behalf of another (principal) to create legal relations with third parties. The principal is bound by acts of the agent performed within the scope of authority."
+        },
+        {
+            "prompt": "What is property law?",
+            "completion": "Property law governs ownership and rights over movable and immovable property. It includes rules regarding acquisition, transfer, possession, use, and protection of property, ensuring clarity and legal protection for owners and users."
+        },
+        {
+            "prompt": "What is easement in property law?",
+            "completion": "An easement is a legal right to use another person's land for a specific purpose, such as a right of way or drainage. It is a property interest that benefits one property while burdening another."
+        },
+        {
+            "prompt": "What is a will?",
+            "completion": "A will is a legal document in which a person expresses their wishes regarding the distribution of their property after death. It ensures that the testator's property is transferred according to their instructions, subject to legal formalities."
+        },
+        {
+            "prompt": "What is intestate succession?",
+            "completion": "Intestate succession refers to the distribution of a deceased person's estate who died without a valid will. The law determines heirs and shares according to personal laws or the Indian Succession Act, ensuring legal distribution of property."
+        },
+        {
+            "prompt": "What is partnership law?",
+            "completion": "Partnership law governs the relationship between partners in a business. The Indian Partnership Act, 1932 defines rights, duties, formation, dissolution, and liabilities of partners, ensuring fair operation of partnerships."
+        },
+        {
+            "prompt": "What is a joint venture?",
+            "completion": "A joint venture is a business arrangement where two or more parties collaborate for a specific project or business purpose, sharing profits, losses, and control, typically formalized through a contract or agreement."
+        },
+        {
+            "prompt": "What is the difference between movable and immovable property?",
+            "completion": "Movable property refers to assets that can be transported, like goods or vehicles. Immovable property refers to land, buildings, or structures permanently attached to land. Legal rules for transfer, registration, and inheritance differ for each type."
+        },
+        {
+            "prompt": "What is consideration in a contract?",
+            "completion": "Consideration is something of value exchanged between parties in a contract. It is a mandatory element for a valid contract, representing the price or promise that induces parties to enter into the agreement."
+        },
+        {
+            "prompt": "What is a lease agreement?",
+            "completion": "A lease agreement is a contract where the owner of property (lessor) grants another (lessee) the right to use property for a defined period in exchange for rent, with rights and duties outlined to protect both parties."
+        },
+        {
+            "prompt": "What is restitution?",
+            "completion": "Restitution is a legal remedy requiring a party who has received a benefit unfairly to return it to prevent unjust enrichment. It aims to restore the status quo prior to the wrongful act."
+        },
+        {
+            "prompt": "What is quantum meruit?",
+            "completion": "Quantum meruit is a principle where a person is entitled to reasonable payment for services rendered, even without a formal contract, based on the value of work done and benefit received."
+        },
+        {
+            "prompt": "What is a negotiable instrument?",
+            "completion": "A negotiable instrument is a written document guaranteeing payment of a specific amount to the bearer or order, transferable by endorsement or delivery. Examples include promissory notes, bills of exchange, and cheques."
+        },
+        {
+            "prompt": "What is consideration of capacity to contract?",
+            "completion": "Capacity to contract ensures that only competent persons (of legal age, sound mind, and not disqualified by law) can enter into valid contracts. Contracts with minors or legally incapacitated persons are generally void or voidable."
+        },
+        {
+            "prompt": "What is restitution in case of breach of contract?",
+            "completion": "In contract law, restitution involves restoring benefits or compensation to the aggrieved party when a contract is breached. It prevents unjust enrichment and ensures fairness between contracting parties."
+        }
+    ],
+    "Environmental Law": [
+        {
+            "prompt": "What is Environmental Law?",
+            "completion": "Environmental Law regulates human activities to protect natural resources, biodiversity, and public health. It covers pollution control, sustainable development, wildlife protection, and climate change policies to ensure ecological balance."
+        },
+        {
+            "prompt": "What is the Environment Protection Act?",
+            "completion": "The Environment Protection Act, 1986 provides a comprehensive framework for central government coordination in environmental protection, including regulations for pollution control, hazardous substances, and environmental clearances for industries."
+        },
+        {
+            "prompt": "What is the National Green Tribunal?",
+            "completion": "The National Green Tribunal (NGT), established in 2010, is a specialized judicial body to handle environmental disputes, enforce laws, and ensure speedy justice. It can impose fines, penalties, or remedial measures for environmental harm."
+        },
+        {
+            "prompt": "What is the polluter pays principle?",
+            "completion": "The polluter pays principle holds that entities responsible for pollution must bear the cost of preventing or remedying environmental damage. It incentivizes sustainable practices and ensures accountability for environmental harm."
+        },
+        {
+            "prompt": "What is the Wildlife Protection Act?",
+            "completion": "The Wildlife Protection Act, 1972 provides legal protection to animals, birds, and plants, establishes sanctuaries and national parks, and regulates hunting and trade of wildlife to conserve biodiversity."
+        },
+        {
+            "prompt": "What is the Forest Conservation Act?",
+            "completion": "The Forest Conservation Act, 1980 regulates diversion of forest land for non-forest purposes, requiring central government approval. It protects forest ecosystems, promotes sustainable use, and prevents illegal deforestation."
+        },
+        {
+            "prompt": "What is an Environmental Impact Assessment?",
+            "completion": "Environmental Impact Assessment (EIA) evaluates potential environmental consequences of projects before approval, considering social, ecological, and economic impacts to minimize damage and promote sustainable development."
+        },
+        {
+            "prompt": "What is the Air Pollution Act?",
+            "completion": "The Air (Prevention and Control of Pollution) Act, 1981 provides measures to control air pollution, establish pollution control boards, and enforce standards for industries, vehicles, and urban areas to protect public health and the environment."
+        },
+        {
+            "prompt": "What is the Water Pollution Act?",
+            "completion": "The Water (Prevention and Control of Pollution) Act, 1974 aims to prevent and control water pollution, maintain water quality, and authorize regulatory authorities to monitor, prevent, and remediate contamination in rivers, lakes, and other water bodies."
+        },
+        {
+            "prompt": "What is sustainable development?",
+            "completion": "Sustainable development meets current needs without compromising future generations, balancing economic growth, social equity, and environmental protection. It encourages renewable resources, conservation, and responsible consumption."
+        },
+        {
+            "prompt": "What is biodiversity conservation?",
+            "completion": "Biodiversity conservation involves protecting species, habitats, and ecosystems. Laws like the Wildlife Protection Act and Biodiversity Act 2002 promote sustainable use, genetic diversity, and protection of endangered species."
+        },
+        {
+            "prompt": "What is the Air Quality Index?",
+            "completion": "The Air Quality Index (AQI) measures air pollution levels, indicating health risks to the population. It guides regulatory actions, public awareness, and policy decisions to reduce pollution and improve air quality."
+        },
+        {
+            "prompt": "What is hazardous waste management?",
+            "completion": "Hazardous waste management regulates generation, storage, transport, and disposal of dangerous materials to prevent environmental contamination, health risks, and ensures compliance with the Hazardous and Other Wastes (Management and Transboundary Movement) Rules."
+        },
+        {
+            "prompt": "What is the Biodiversity Act?",
+            "completion": "The Biodiversity Act, 2002 aims to conserve biological resources, ensure sustainable use, and equitable sharing of benefits arising from biological resources and knowledge, involving local communities in conservation efforts."
+        },
+        {
+            "prompt": "What are environmental standards?",
+            "completion": "Environmental standards are regulatory limits on pollutants, emissions, and discharges into air, water, or soil. They ensure compliance with laws, protect public health, and maintain ecological balance."
+        },
+        {
+            "prompt": "What is climate change law?",
+            "completion": "Climate change law includes policies and regulations to mitigate greenhouse gas emissions, promote renewable energy, implement adaptation strategies, and fulfill international commitments under agreements like the Paris Accord."
+        },
+        {
+            "prompt": "What is the role of the Central Pollution Control Board?",
+            "completion": "The Central Pollution Control Board (CPCB) monitors environmental quality, enforces pollution control measures, provides technical guidance, and coordinates with state boards to ensure compliance with environmental laws."
+        },
+        {
+            "prompt": "What is environmental litigation?",
+            "completion": "Environmental litigation involves legal action to enforce environmental laws, address pollution, conserve natural resources, and protect public health. Courts can impose fines, order remediation, or prevent harmful activities."
+        },
+        {
+            "prompt": "What is environmental audit?",
+            "completion": "Environmental audit is a systematic evaluation of a company's compliance with environmental laws, assessing its impact on natural resources, emissions, waste management, and sustainability practices."
+        },
+        {
+            "prompt": "What is the concept of eco-friendly technology?",
+            "completion": "Eco-friendly technology minimizes environmental impact by reducing emissions, conserving resources, and promoting sustainable production and consumption, helping businesses and society achieve environmental goals."
+        },
+        {
+            "prompt": "What is afforestation?",
+            "completion": "Afforestation is the process of planting trees on barren or deforested land to restore ecosystems, combat climate change, and prevent soil erosion, regulated under the Forest Conservation Act and other policies."
+        },
+        {
+            "prompt": "What is waste management?",
+            "completion": "Waste management involves collection, segregation, recycling, treatment, and disposal of waste to minimize environmental pollution, ensure public health, and promote sustainable resource use."
+        },
+        {
+            "prompt": "What is the Environmental Court?",
+            "completion": "Environmental Courts or Tribunals, like the NGT, adjudicate cases involving environmental damage, pollution, and compliance with laws, ensuring timely justice and enforcement of environmental standards."
+        },
+        {
+            "prompt": "What is environmental clearance?",
+            "completion": "Environmental clearance is official approval for projects affecting the environment, ensuring compliance with regulations, EIAs, and sustainable practices before construction or operation begins."
+        },
+        {
+            "prompt": "What is water conservation law?",
+            "completion": "Water conservation laws regulate usage, promote efficient irrigation, prevent over-extraction, and ensure sustainable supply, protecting ecosystems, agriculture, and drinking water resources."
+        },
+        {
+            "prompt": "What is the concept of carbon credits?",
+            "completion": "Carbon credits are tradable certificates representing emission reductions. Companies can earn or buy credits to offset carbon emissions, promoting clean energy and compliance with climate change policies."
+        },
+        {
+            "prompt": "What is the Noise Pollution Act?",
+            "completion": "The Noise Pollution (Regulation and Control) Rules, 2000 control noise levels in residential, industrial, and commercial areas, protecting citizens' health and preventing environmental disturbances."
+        },
+        {
+            "prompt": "What is sustainable urban development?",
+            "completion": "Sustainable urban development integrates efficient resource use, green infrastructure, waste management, pollution control, and equitable housing to ensure cities grow in an environmentally and socially responsible manner."
+        },
+        {
+            "prompt": "What is renewable energy law?",
+            "completion": "Renewable energy law promotes generation, usage, and incentives for clean energy sources like solar, wind, and biomass, reducing dependence on fossil fuels and mitigating environmental damage."
+        }
+    ],
+    "Labor Law": [
+        {
+            "prompt": "What is Labor Law?",
+            "completion": "Labor Law governs relations between employers and employees, ensuring fair wages, safe working conditions, social security, dispute resolution, and protection of workers' rights under statutory and contractual frameworks."
+        },
+        {
+            "prompt": "What is the Minimum Wages Act?",
+            "completion": "The Minimum Wages Act, 1948 ensures employers pay workers minimum compensation for work performed, preventing exploitation and maintaining social equity in wages across different sectors and regions."
+        },
+        {
+            "prompt": "What is the Industrial Disputes Act?",
+            "completion": "The Industrial Disputes Act, 1947 provides mechanisms for resolving disputes between employers and employees through negotiation, conciliation, arbitration, and adjudication to maintain industrial peace."
+        },
+        {
+            "prompt": "What is the Employees' Provident Fund?",
+            "completion": "The Employees' Provident Fund (EPF) under the EPF Act, 1952 provides compulsory retirement savings for employees, ensuring financial security and a corpus for post-retirement life."
+        },
+        {
+            "prompt": "What is the Factories Act?",
+            "completion": "The Factories Act, 1948 regulates working conditions, health, safety, welfare, hours, and leave provisions in factories to protect workers and ensure safe, humane, and productive work environments."
+        },
+        {
+            "prompt": "What is wrongful termination?",
+            "completion": "Wrongful termination occurs when an employee is dismissed unlawfully or in breach of contract, labor laws, or principles of natural justice, giving the employee legal grounds for remedies or reinstatement."
+        },
+        {
+            "prompt": "What is the Payment of Gratuity Act?",
+            "completion": "The Payment of Gratuity Act, 1972 provides gratuity payment to employees who have completed five or more years of continuous service, ensuring financial reward upon retirement, resignation, or termination."
+        },
+        {
+            "prompt": "What is maternity leave in India?",
+            "completion": "The Maternity Benefit Act, 1961 (amended 2017) provides 26 weeks of paid leave for women employees, including work-from-home provisions, to support maternal and child health and promote gender equality in workplaces."
+        },
+        {
+            "prompt": "What is collective bargaining?",
+            "completion": "Collective bargaining is a negotiation process between employers and employee representatives (often trade unions) to determine employment terms, wages, and working conditions, fostering cooperation and dispute resolution."
+        },
+        {
+            "prompt": "What is the Shops and Establishments Act?",
+            "completion": "The Shops and Establishments Act regulates working conditions in shops, offices, and commercial establishments, covering working hours, holidays, rest intervals, overtime, and employee rights."
+        },
+        {
+            "prompt": "What is the Trade Unions Act?",
+            "completion": "The Trade Unions Act, 1926 governs the registration, rights, and duties of trade unions, promoting organized labor, protecting workers' collective interests, and regulating industrial relations."
+        },
+        {
+            "prompt": "What is industrial safety law?",
+            "completion": "Industrial safety laws establish guidelines for workplace safety, accident prevention, hazard management, and compliance with statutory requirements under the Factories Act and related regulations."
+        },
+        {
+            "prompt": "What is the Equal Remuneration Act?",
+            "completion": "The Equal Remuneration Act, 1976 ensures equal pay for men and women performing similar work, preventing gender discrimination and promoting fair employment practices."
+        },
+        {
+            "prompt": "What is the Apprentices Act?",
+            "completion": "The Apprentices Act, 1961 regulates the training of apprentices in industries, providing practical experience, skill development, and compliance with labor laws for workforce enhancement."
+        },
+        {
+            "prompt": "What is employment contract law?",
+            "completion": "Employment contracts define terms of employment including duties, compensation, working hours, and termination. They form a legally binding agreement protecting both employer and employee rights."
+        },
+        {
+            "prompt": "What is social security in labor law?",
+            "completion": "Social security includes statutory benefits like provident fund, gratuity, maternity leave, health insurance, and pensions, providing financial protection and welfare support to workers."
+        },
+        {
+            "prompt": "What is the Contract Labour Act?",
+            "completion": "The Contract Labour (Regulation and Abolition) Act, 1970 regulates employment of contract labor, ensuring fair wages, working conditions, welfare measures, and prohibition in certain establishments."
+        },
+        {
+            "prompt": "What is workmen's compensation?",
+            "completion": "Workmen's compensation under the Employees' Compensation Act, 1923 provides financial compensation for injuries or death arising out of employment, ensuring protection and support for affected workers and families."
+        },
+        {
+            "prompt": "What is the Maternity Benefit Rules?",
+            "completion": "The Maternity Benefit Rules detail eligibility, duration, leave benefits, nursing breaks, and employer obligations under the Maternity Benefit Act to safeguard women employees during maternity."
+        },
+        {
+            "prompt": "What is the role of labor courts?",
+            "completion": "Labor courts and industrial tribunals adjudicate disputes between employers and employees, including wage claims, unfair dismissal, and compliance with labor laws, ensuring speedy and just resolution."
+        },
+        {
+            "prompt": "What is the Employees State Insurance Act?",
+            "completion": "The Employees' State Insurance Act, 1948 provides medical care, cash benefits, maternity, disability, and dependent benefits for employees in case of sickness, injury, or death due to employment."
+        },
+        {
+            "prompt": "What is sexual harassment law at workplace?",
+            "completion": "The Sexual Harassment of Women at Workplace (Prevention, Prohibition, and Redressal) Act, 2013 mandates safe working environments, complaint mechanisms, and legal protection against harassment."
+        },
+        {
+            "prompt": "What is child labor law?",
+            "completion": "Child labor laws, primarily under the Child and Adolescent Labour (Prohibition and Regulation) Act, 1986, prohibit employment of children below 14 years and regulate conditions for adolescents, ensuring protection and education."
+        },
+        {
+            "prompt": "What is working hours regulation?",
+            "completion": "Working hours are regulated under the Factories Act and Shops & Establishments Acts to prevent overwork, ensure rest intervals, and protect workers' health, usually limiting to 8-9 hours per day and 48 hours per week."
+        },
+        {
+            "prompt": "What is industrial dispute resolution?",
+            "completion": "Industrial dispute resolution involves negotiation, conciliation, arbitration, and adjudication between employers and employees, aiming to maintain industrial peace, protect rights, and prevent strikes or lockouts."
+        },
+        {
+            "prompt": "What is trade union recognition?",
+            "completion": "Trade union recognition is formal acknowledgment by employers or statutory authorities, granting a union the authority to negotiate and represent workers, essential for collective bargaining and labor rights protection."
+        },
+        {
+            "prompt": "What is the importance of labor law compliance?",
+            "completion": "Compliance ensures legal adherence, protection of worker rights, avoidance of penalties, promotion of safe working environments, and corporate social responsibility, fostering trust and sustainable business operations."
+        },
+        {
+            "prompt": "What is overtime pay law?",
+            "completion": "Overtime pay regulations mandate additional compensation for hours worked beyond standard limits, ensuring fair wages, preventing exploitation, and complying with labor protection laws."
+        },
+        {
+            "prompt": "What is the role of the labor inspector?",
+            "completion": "Labor inspectors enforce labor laws, inspect establishments, ensure compliance with safety, wages, working hours, welfare provisions, and report violations, safeguarding workers' rights and workplace standards."
+        }
+    ]
 }

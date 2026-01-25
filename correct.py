@@ -244,7 +244,6 @@ html, body, [class*="st-"], .stApp, p, div, span, label {
     font-size: 24px !important; 
     font-weight: 600 !important;
     line-height: 1.6 !important;
-    color: #ffffff !important;
 }
             
 /* 1. Completely remove the arrow icon and its internal text */
@@ -325,23 +324,18 @@ def text_to_speech(text):
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as fp:
             tts.save(fp.name)
             
-            
-        # Read the file and encode to base64 for Streamlit
-        with open(fp.name, "rb") as f:
-            data = f.read()
-            b64 = base64.b64encode(data).decode()
-        
-        os.unlink(fp.name) 
-
-        # HTML for audio player
-        audio_html = f"""
-            <audio controls autoplay="true">
-            <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
-            </audio>
-            """
-
-        return audio_html
-            
+            # Read the file and encode to base64 for Streamlit
+            with open(fp.name, "rb") as f:
+                data = f.read()
+                b64 = base64.b64encode(data).decode()
+                
+                # HTML for an auto-playing audio element
+                audio_html = f"""
+                    <audio controls autoplay="true">
+                    <source src="data:audio/mp3;base64,{b64}" type="audio/mp3">
+                    </audio>
+                    """
+                return audio_html
     except Exception as e:
         return f"Error generating audio: {str(e)}"
 
@@ -379,30 +373,24 @@ def login_user(username, password):
     return False, None
 
 def save_chat_history(username, category, user_message, bot_response):
-    """Save chat interaction to MongoDB with Error Handling"""
-    try:
-        client = get_mongo_client()
-        if not client:
-            print("⚠️ MongoDB Client not available. Chat not saved.")
-            return False
-        
-        db = client[DB_NAME]
-        chat_collection = db.chat_history
-        
-        chat_data = {
-            "username": username,
-            "category": category,
-            "user_message": user_message,
-            "bot_response": bot_response,
-            "timestamp": datetime.now()
-        }
-        
-        chat_collection.insert_one(chat_data)
-        return True
-    except Exception as e:
-        print(f"❌ Error saving chat history: {e}")
-        # Return True anyway so the UI continues to function even if saving fails
-        return True
+    """Save chat interaction to MongoDB"""
+    client = get_mongo_client()
+    if not client:
+        return False
+    
+    db = client[DB_NAME]
+    chat_collection = db.chat_history
+    
+    chat_data = {
+        "username": username,
+        "category": category,
+        "user_message": user_message,
+        "bot_response": bot_response,
+        "timestamp": datetime.now()
+    }
+    
+    chat_collection.insert_one(chat_data)
+    return True
 
 def get_user_chat_history(username, limit=50):
     """Retrieve user's chat history"""
@@ -580,9 +568,12 @@ def get_leaderboard(quiz_id):
 
 
 
+
+
 # ---------------------------
 # Authentication UI
 # ---------------------------
+
 
 def show_auth_page():
     """Display login/register page with Google Auth (Manual Override Version)"""
@@ -1187,8 +1178,12 @@ def admin_quiz_panel():
 def user_quiz_panel():
     """User interface for taking quizzes with live auto-refresh"""
     
+    # Ensure this line is indented with 4 spaces to match st.markdown below
+
+    
     st.markdown("## 📝 Legal Knowledge Quiz")
 
+    # Around Line 1050
     tab1, tab2, tab3 = st.tabs(["Available Quizzes", "My Results", "🏆 Leaderboard"])
 
     with tab1:
@@ -1261,19 +1256,15 @@ def user_quiz_panel():
                 st.rerun()
 
         elif "active_quiz" in st.session_state and st.session_state.active_quiz:
-
-            st_autorefresh(interval=1000, limit=None, key="quiz_timer_refresh")
+            st_autorefresh(interval=1000, limit=1000, key="quiz_timer_refresh")
             quiz = st.session_state.active_quiz
             
+            # Initialization remains the same
             if "quiz_start_time" not in st.session_state:
                 st.session_state.quiz_start_time = time.time()
                 indices = list(range(len(quiz['questions'])))
                 random.shuffle(indices)
                 st.session_state.shuffled_indices = indices
-                
-                # ✅ FIX: Use timestamps to track 20-second duration
-                st.session_state.alert_5min_start = None
-                st.session_state.alert_1min_start = None
 
             # Use the dynamic time limit from the database
             # Default to 10 if not found for older quizzes
@@ -1283,38 +1274,12 @@ def user_quiz_panel():
             elapsed = time.time() - st.session_state.quiz_start_time
             remaining = limit_seconds - elapsed
 
-            # ✅ FIX: 20-Second Visible Alerts
-            current_time = time.time()
-
-            # --- 5 Minute Alert ---
-            # Trigger logic: If time is right and we haven't started the timer yet
-            if limit_seconds > 300 and 0 < remaining <= 300 and st.session_state.alert_5min_start is None:
-                st.session_state.alert_5min_start = current_time
-            
-            # Display logic: Show if started less than 20 seconds ago
-            if st.session_state.alert_5min_start and (current_time - st.session_state.alert_5min_start < 20):
-                st.warning("⚠️ **5 Minutes Remaining!** Please check your answers.", icon="⏳")
-
-
-            # --- 1 Minute Alert ---
-            # Trigger logic
-            if limit_seconds > 60 and 0 < remaining <= 60 and st.session_state.alert_1min_start is None:
-                st.session_state.alert_1min_start = current_time
-            
-            # Display logic: Show if started less than 20 seconds ago
-            if st.session_state.alert_1min_start and (current_time - st.session_state.alert_1min_start < 20):
-                st.error("🚨 **1 Minute Remaining!** Hurry up!", icon="⏰")
-
             # Live UI Feedback
-            auto_submit = False
-
-
             if remaining <= 0:
-                st.warning("🚨 Time is up! Auto-submitting your answers...")
-                auto_submit = True # Enable auto-submit flag
-                
+                st.error("🚨 TIME IS UP! You can no longer submit this quiz.")
+                # Optional: Force auto-submit logic here if needed
             else:
-                # This will now visibly tick down every second
+                # This will now visibly tick down every second: 9m 59s -> 9m 58s
                 st.warning(f"⏳ Time Remaining: {int(remaining // 60)}m {int(remaining % 60)}s")
             
             st.markdown(f"### 🎯 {quiz['title']} ({quiz.get('difficulty', 'Medium')})")
@@ -1326,7 +1291,7 @@ def user_quiz_panel():
                     question = quiz['questions'][idx]
                     st.markdown(f"**Question:** {question['question']}")
                     
-                    # Store shuffled options in session state
+                    # NEW FIX: Store shuffled options in session state so they don't change every second
                     opt_key = f"shuffled_opts_{idx}"
                     if opt_key not in st.session_state:
                         opts = list(question['options'].items())
@@ -1346,14 +1311,10 @@ def user_quiz_panel():
                     st.session_state.quiz_answers[idx] = answer[0]
                     st.markdown("---")
 
-                # --- 🟢 UPDATED: Hide Button if Time Up ---
+                # The Submit Button triggers the script rerun to update the timer
                 col1, col2 = st.columns(2)
                 with col1:
-                    if remaining > 0:
-                        submitted = st.form_submit_button("Submit Quiz", type="primary", use_container_width=True)
-                    else:
-                        submitted = False
-                        # No button here prevents manual clicking, forcing the auto-submit logic below
+                    submitted = st.form_submit_button("Submit Quiz", type="primary", use_container_width=True)
                 with col2:
                     cancel = st.form_submit_button("Cancel Quiz", use_container_width=True)
 
@@ -1370,8 +1331,7 @@ def user_quiz_panel():
                     del st.session_state.quiz_answers
                     st.rerun()
 
-                # --- 🟢 UPDATED: Trigger if Button Clicked OR Auto-Submit True ---
-                if submitted or auto_submit:
+                if submitted:
                     # 1. Calculate time and score
                     time_taken = round(time.time() - st.session_state.quiz_start_time, 2)
                     score = sum(1 for i, q in enumerate(quiz['questions']) 
@@ -1387,11 +1347,11 @@ def user_quiz_panel():
                         time_taken
                     )
                     
-                    # 3. Check for podium placement to trigger 5-sec animation
+                    # 3. NEW: Check for podium placement to trigger 5-sec animation
                     lb_data = get_leaderboard(str(quiz['_id']))
                     top_three = [entry['username'] for entry in lb_data[:3]]
                     if st.session_state.username in top_three:
-                        st.session_state.celebrate_podium = True 
+                        st.session_state.celebrate_podium = True # Flag for 5-sec animation
                     
                     # 4. Clear shuffled options to prevent order glitches
                     for key in list(st.session_state.keys()):
