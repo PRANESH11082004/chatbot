@@ -21,6 +21,7 @@ import time
 import random
 from streamlit_autorefresh import st_autorefresh
 from streamlit_google_auth import Authenticate
+from bson.objectid import ObjectId
 
 # Load environment variables
 load_dotenv()
@@ -125,6 +126,126 @@ def get_gemini_client():
     active_key = GEMINI_API_KEYS[active_index]
     print(f"Using Gemini API Key #{active_index + 1}")
     return genai.Client(api_key=active_key)
+
+
+# ---------------------------
+# Chat Session Management (NEW)
+# ---------------------------
+def create_new_chat_session(username):
+    """Create a new empty chat session"""
+    client = get_mongo_client()
+    if not client: return None
+    
+    db = client[DB_NAME]
+    session_data = {
+        "username": username,
+        "title": "New Chat",
+        "created_at": datetime.now(),
+        "updated_at": datetime.now()
+    }
+    result = db.chat_sessions.insert_one(session_data)
+    return str(result.inserted_id)
+
+def get_user_chat_sessions(username):
+    """Fetch all chat sessions for the sidebar"""
+    client = get_mongo_client()
+    if not client: return []
+    
+    db = client[DB_NAME]
+    # Sort by 'updated_at' so the newest chats appear at the top
+    sessions = list(db.chat_sessions.find({"username": username}).sort("updated_at", -1))
+    
+    # Convert ObjectId to string for Streamlit compatibility
+    for s in sessions:
+        s["_id"] = str(s["_id"])
+    return sessions
+
+def update_session_title(session_id, new_title):
+    """Rename a specific chat session"""
+    client = get_mongo_client()
+    if not client: return False
+    
+    db = client[DB_NAME]
+    db.chat_sessions.update_one(
+        {"_id": ObjectId(session_id)},
+        {"$set": {"title": new_title}}
+    )
+    return True
+
+def delete_chat_session(session_id):
+    """Delete a session AND all messages inside it"""
+    client = get_mongo_client()
+    if not client: return False
+    
+    db = client[DB_NAME]
+    # 1. Delete the session metadata
+    db.chat_sessions.delete_one({"_id": ObjectId(session_id)})
+    # 2. Delete the actual messages linked to this ID
+    db.chat_history.delete_many({"session_id": session_id})
+    return True
+
+
+
+def generate_chat_title(first_message):
+    """Generate a short 3-5 word title using Gemini"""
+    try:
+        client = get_gemini_client()
+        if not client: return "Legal Query"
+        
+        prompt = f"Generate a very short title (maximum 5 words) summarizing this legal question: '{first_message}'. Do not use quotes."
+        response = client.models.generate_content(
+            model="gemini-2.5-flash",
+            contents=prompt
+        )
+        if response and response.text:
+            return response.text.strip()
+        return "Legal Query"
+    except:
+        return "Legal Query"
+    
+
+# ---------------------------
+# Chat History Management (UPDATED)
+# ---------------------------
+def save_chat_message(session_id, username, category, user_message, bot_response):
+    """Save a message linked to a specific session ID"""
+    try:
+        client = get_mongo_client()
+        if not client: return False
+        
+        db = client[DB_NAME]
+        
+        # 1. Save the actual message
+        chat_data = {
+            "session_id": session_id,
+            "username": username,
+            "category": category,
+            "user_message": user_message,
+            "bot_response": bot_response,
+            "timestamp": datetime.now()
+        }
+        db.chat_history.insert_one(chat_data)
+        
+        # 2. Update the session's 'updated_at' time so it jumps to the top of the sidebar
+        db.chat_sessions.update_one(
+            {"_id": ObjectId(session_id)},
+            {"$set": {"updated_at": datetime.now()}}
+        )
+        return True
+    except Exception as e:
+        print(f"Error saving chat: {e}")
+        return False
+
+def get_session_messages(session_id):
+    """Load all messages for the active session"""
+    client = get_mongo_client()
+    if not client: return []
+
+    db = client[DB_NAME]
+    # Sort by timestamp ascending (oldest to newest) for the chat view
+    return list(db.chat_history.find({"session_id": session_id}).sort("timestamp", 1))
+
+
 
 # ---------------------------
 # Authentication Functions
@@ -1526,157 +1647,173 @@ def main_app():
     """Main application after login"""
     apply_global_styles()
 
-    # Your existing code continues...
-    is_admin_user = st.session_state.user_data.get("is_admin", False)
-
-    # Check if user is admin
-    is_admin_user = st.session_state.user_data.get("is_admin", False)
-
-    # Header
-    col1, col2, col3 = st.columns([1, 2, 1])
-    with col2:
-        st.markdown(
-            "<h1 style='text-align: center;'>Legal Advisor</h1>",
-            unsafe_allow_html=True
-        )
-
-    # Logout button in sidebar (Line 1471)
+    # --- SIDEBAR: CHAT HISTORY ---
     with st.sidebar:
+        # Profile Section
         if "user_data" in st.session_state:
-            # Display Google Profile Image if available
             profile_pic = st.session_state.user_data.get("profile_pic")
             if profile_pic:
                 st.image(profile_pic, width=80)
             
-            if is_admin_user:
+            if st.session_state.user_data.get("is_admin", False):
                 st.markdown(f"### 👨‍💼 Admin: {st.session_state.username}")
             else:
                 st.markdown(f"### 👤 {st.session_state.username}")
 
+        # Logout
         if st.button("🚪 Logout", use_container_width=True):
-            # Clear Google cookie
             st.write('<script>document.cookie = "legal_advisor_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";</script>', unsafe_allow_html=True)
-            
-            # Reset session
-            if 'connected' in st.session_state:
-                st.session_state.connected = False
-            for key in list(st.session_state.keys()):
-                del st.session_state[key]
+            st.session_state.logged_in = False
+            for key in list(st.session_state.keys()): del st.session_state[key]
             st.rerun()
+        
         st.divider()
-
-        # Info about features
-        st.markdown("### 🤖 Smart Features")
-        st.info("✨ **Auto Category Detection**: The system automatically detects the relevant legal category.\n\n🛡️ **Safety Protection**: AI-powered intent detection prevents harmful or illegal queries.")
-
-        # Available categories
-        st.markdown("### 📚 Available Categories")
-        st.success("⚖️ Constitutional Law\n\n📜 Civil Law\n\n🌿 Environmental Law\n\n👷 Labor Law")
-
-        st.divider()
-
-        # Clear chat button (for all users)
-        st.markdown("### 🗑️ Chat Actions")
-        if st.button("Clear Chat History", use_container_width=True, type="secondary"):
-            st.session_state.chat_history = []
-            st.success("Chat cleared!")
+        
+        # 🆕 NEW CHAT BUTTON
+        if st.button("➕ New Chat", use_container_width=True, type="primary"):
+            new_id = create_new_chat_session(st.session_state.username)
+            st.session_state.active_session_id = new_id
             st.rerun()
 
-    # Main content area with tabs
+        st.markdown("### 🕒 History")
+        
+        # 📜 LIST SESSIONS
+        sessions = get_user_chat_sessions(st.session_state.username)
+        if not sessions:
+            st.caption("No chat history.")
+        else:
+            for sess in sessions:
+                sid = sess["_id"]
+                title = sess.get("title", "New Chat")
+                
+                # Visual Highlight for Active Session
+                is_active = st.session_state.get("active_session_id") == sid
+                
+                # Container for row layout
+                with st.container():
+                    col1, col2, col3 = st.columns([6, 1, 1])
+                    with col1:
+                        # Load Chat Button
+                        btn_type = "primary" if is_active else "secondary"
+                        if st.button(f"💬 {title}", key=f"sess_{sid}", use_container_width=True, type=btn_type):
+                            st.session_state.active_session_id = sid
+                            st.rerun()
+                    with col2:
+                        # Rename Icon
+                        if st.button("✎", key=f"ren_{sid}", help="Rename"):
+                            st.session_state.rename_mode = sid
+                    with col3:
+                        # Delete Icon
+                        if st.button("🗑️", key=f"del_{sid}", help="Delete"):
+                            delete_chat_session(sid)
+                            # If we deleted the open chat, close it
+                            if st.session_state.get("active_session_id") == sid:
+                                st.session_state.active_session_id = None
+                            st.rerun()
+                
+                # Rename Input (Only shows if pencil clicked)
+                if st.session_state.get("rename_mode") == sid:
+                    new_name = st.text_input("New Name", value=title, key=f"input_{sid}")
+                    if st.button("Save", key=f"save_{sid}"):
+                        update_session_title(sid, new_name)
+                        del st.session_state.rename_mode
+                        st.rerun()
+
+    # --- MAIN CONTENT ---
+    is_admin_user = st.session_state.user_data.get("is_admin", False)
+
     if is_admin_user:
-        # Admin view - Chat, Quiz, and Admin Panel
         tab1, tab2, tab3 = st.tabs(["💬 Legal Chat", "📝 Quiz", "👨‍💼 Admin Panel"])
-
-        with tab1:
-            # Chat interface
-            chat_interface()
-
-        with tab2:
-            # Quiz interface (take quizzes)
-            user_quiz_panel()
-
-        with tab3:
-            # Admin panel (manage quizzes and API keys)
-            admin_quiz_panel()
+        with tab1: chat_interface()
+        with tab2: user_quiz_panel()
+        with tab3: admin_quiz_panel()
     else:
-        # Regular user view - Chat and Quiz
         tab1, tab2 = st.tabs(["💬 Legal Chat", "📝 Quiz"])
-
-        with tab1:
-            # Chat interface (existing code)
-            chat_interface()
-        with tab2:
-            # Quiz interface
-            user_quiz_panel()
+        with tab1: chat_interface()
+        with tab2: user_quiz_panel()
 
 def chat_interface():
-    """Chat interface for regular users"""
+    """Chat interface for regular users with MongoDB Session Management"""
 
-    # Initialize chat history
-    if "chat_history" not in st.session_state:
-        st.session_state.chat_history = []
+    # 1. Manage Active Session ID
+    if "active_session_id" not in st.session_state:
+        st.session_state.active_session_id = None
 
-    # Initialize voice input counter for resetting audio recorder
+    # 2. Check if a session is selected; if not, show empty state
+    if not st.session_state.active_session_id:
+        st.info("👈 Select a chat from the sidebar or click 'New Chat' to start.")
+        # Auto-create one for first-time users if they have no history
+        if st.button("Start New Conversation", use_container_width=True):
+            new_id = create_new_chat_session(st.session_state.username)
+            st.session_state.active_session_id = new_id
+            st.rerun()
+        return
+
+    # 3. Load Messages for Active Session from MongoDB
+    # This fetches the chat history for the specific session ID you clicked
+    messages = get_session_messages(st.session_state.active_session_id)
+    
+    # Initialize voice input counter if not present
     if "voice_input_counter" not in st.session_state:
         st.session_state.voice_input_counter = 0
 
-    # Display chat history
-    for i, (role, msg) in enumerate(st.session_state.chat_history):
-        with st.chat_message(role):
-            st.markdown(msg)
+    # 4. Display Chat History
+    for i, msg in enumerate(messages):
+        # Display User Message
+        with st.chat_message("user"):
+            st.write(msg["user_message"])
             
-            # Add the Listen button for assistant responses
-            if role == "assistant":
-                if st.button(f"🔊 Listen", key=f"tts_btn_{i}"):
-                    # 1. Get the user's question (the message right before this one)
-                    user_question = st.session_state.chat_history[i-1][1] if i > 0 else ""
-                    
-                    # 2. Extract only the explanation if a header exists
-                    # This removes the "⚖️ Constitutional Law" part from the speech
-                    if "\n\n" in msg:
-                        explanation_only = msg.split("\n\n", 1)[1]
-                        full_speech_text = f"The question was: {user_question}. The answer is: {explanation_only}"
-                    else:
-                        full_speech_text = f"The question was: {user_question}. The answer is: {msg}"
-                    
-                    # 3. Clean formatting (remove bold and headers)
-                    full_speech_text = full_speech_text.replace("**", "").replace("#", "")
-                    
-                    # 4. Remove Emojis so they aren't spoken (e.g., "Scroll")
-                    emojis_to_remove = ["⚖️", "📜", "🌿", "👷", "📚", "🤖"]
-                    for emoji in emojis_to_remove:
-                        full_speech_text = full_speech_text.replace(emoji, "")
-                    
-                    # 5. Generate and play audio
-                    audio_html = text_to_speech(full_speech_text)
-                    st.markdown(audio_html, unsafe_allow_html=True)
+        # Display Assistant Message
+        with st.chat_message("assistant"):
+            st.markdown(msg["bot_response"])
+            
+            # Add the Listen button
+            if st.button(f"🔊 Listen", key=f"tts_btn_{i}"):
+                # Get texts directly from the message object
+                user_question = msg["user_message"]
+                bot_response_text = msg["bot_response"]
+                
+                # Clean text logic (Removing headers/bolding for speech)
+                if "\n\n" in bot_response_text:
+                    explanation_only = bot_response_text.split("\n\n", 1)[1]
+                    full_speech_text = f"The question was: {user_question}. The answer is: {explanation_only}"
+                else:
+                    full_speech_text = f"The question was: {user_question}. The answer is: {bot_response_text}"
+                
+                # Remove Markdown and Emojis
+                full_speech_text = full_speech_text.replace("**", "").replace("#", "")
+                emojis_to_remove = ["⚖️", "📜", "🌿", "👷", "📚", "🤖"]
+                for emoji in emojis_to_remove:
+                    full_speech_text = full_speech_text.replace(emoji, "")
+                
+                # Generate and play
+                audio_html = text_to_speech(full_speech_text)
+                st.markdown(audio_html, unsafe_allow_html=True)
 
-    # Voice-to-Text Section
+    # 5. Voice-to-Text Section (Your Original Logic Preserved)
     st.markdown("---")
     col_title, col_clear = st.columns([4, 1])
     with col_title:
         st.markdown("##### 🎤 Voice Input (Optional)")
     with col_clear:
-        if st.button("🔄 Clear", key="clear_voice", help="Clear voice input and start fresh"):
+        if st.button("🔄 Clear", key="clear_voice", help="Clear voice input"):
             if "transcribed_text" in st.session_state:
                 del st.session_state.transcribed_text
             if "edit_mode" in st.session_state:
                 del st.session_state.edit_mode
-            # Increment counter to reset audio recorder
             st.session_state.voice_input_counter += 1
             st.rerun()
 
     # Create tabs for recording and uploading
     voice_tab1, voice_tab2 = st.tabs(["🎙️ Record Audio", "📁 Upload Audio File"])
-
     user_input = None
 
     with voice_tab1:
         st.markdown("**Record your question directly in the browser:**")
+        # Dynamic key ensures the widget resets when counter increments
         audio_recorded = st.audio_input("Click to start recording", key=f"audio_recorder_{st.session_state.voice_input_counter}")
 
         if audio_recorded is not None:
-            # Auto-convert to text if not already converted
             if "transcribed_text" not in st.session_state:
                 with st.spinner("Converting audio to text..."):
                     success, result = audio_to_text(audio_recorded)
@@ -1685,8 +1822,7 @@ def chat_interface():
                         st.rerun()
                     else:
                         st.error(result)
-                        # Show discard button on error
-                        if st.button("🗑️ Try Again", use_container_width=True, key="discard_error"):
+                        if st.button("🗑️ Try Again", key="discard_error"):
                             st.session_state.voice_input_counter += 1
                             st.rerun()
 
@@ -1696,7 +1832,6 @@ def chat_interface():
 
         if audio_file is not None:
             st.audio(audio_file, format=f'audio/{audio_file.type.split("/")[1]}')
-            # Auto-convert to text if not already converted
             if "transcribed_text" not in st.session_state:
                 with st.spinner("Converting audio to text..."):
                     success, result = audio_to_text(audio_file)
@@ -1705,18 +1840,16 @@ def chat_interface():
                         st.rerun()
                     else:
                         st.error(result)
-                        # Show try again button on error
-                        if st.button("🗑️ Try Again", use_container_width=True, key="discard_upload_error"):
+                        if st.button("🗑️ Try Again", key="discard_upload_error"):
                             st.session_state.voice_input_counter += 1
                             st.rerun()
 
-    # Display transcribed text if available
+    # 6. Display/Edit Transcribed Text
     if "transcribed_text" in st.session_state and st.session_state.transcribed_text:
         st.markdown("---")
         st.markdown("**📝 Your Question:**")
         st.info(st.session_state.transcribed_text)
 
-        # Show edit mode if active
         if "edit_mode" in st.session_state and st.session_state.edit_mode:
             edited_text = st.text_area("Edit your question:", value=st.session_state.transcribed_text, height=100, key="edit_text_area")
             col1, col2, col3 = st.columns(3)
@@ -1736,16 +1869,13 @@ def chat_interface():
                     st.session_state.voice_input_counter += 1
                     st.rerun()
         else:
-            # Show Send, Edit, Discard buttons
             col1, col2, col3 = st.columns(3)
             with col1:
                 if st.button("✅ Send Question", use_container_width=True, type="primary", key="send_transcribed"):
                     user_input = st.session_state.transcribed_text
-                    # Clear the transcribed text after use
                     del st.session_state.transcribed_text
             with col2:
                 if st.button("✏️ Edit", use_container_width=True, key="edit_transcribed"):
-                    # Store in a text area for editing
                     st.session_state.edit_mode = True
                     st.rerun()
             with col3:
@@ -1756,89 +1886,73 @@ def chat_interface():
 
     st.markdown("---")
 
-    # Chat input
+    # 7. Standard Chat Input (Text)
+    # Only show if we haven't already got input from voice
     if not user_input:
         user_input = st.chat_input("Ask your legal question...")
 
+    # 8. PROCESS INPUT
     if user_input:
-        # Add user message
-        st.session_state.chat_history.append(("user", user_input))
+        # Optimistic UI update
+        with st.chat_message("user"):
+            st.write(user_input)
 
-        # 2. Check for Critical Client Error BEFORE processing
+        # Safety Check: Gemini Client
         if not gemini_client:
-             error_msg = "⚠️ System Error: Gemini Client not initialized. Please check your API Keys in .env"
-             st.session_state.chat_history.append(("assistant", error_msg))
-             st.rerun()
-             
+             st.error("⚠️ System Error: Gemini Client not initialized. Please check your API Keys in .env")
+             return
 
-        # Get response with intent detection and auto-classification
+        # Get response
         with st.spinner("Analyzing question and finding answer..."):
-            # Step 1: Check for harmful intent
             is_safe = detect_harmful_intent(user_input)
 
             if not is_safe:
-                # Block harmful questions
-                response = """🚫 **Safety Alert**
-
-I cannot provide assistance with this request as it appears to involve potentially harmful or illegal activities.
-
-**This legal advisory system is designed to:**
-✅ Provide information about legal rights and protections
-✅ Explain laws and legal procedures
-✅ Help understand legal consequences
-✅ Offer educational information about Indian law
-
-**I cannot help with:**
-❌ Planning or committing illegal activities
-❌ Evading legal consequences
-❌ Harming others or their rights
-❌ Fraudulent or deceptive practices
-
-If you have a legitimate legal question, please rephrase it. If you're facing a legal issue, I recommend consulting a licensed legal professional."""
+                response = "🚫 **Safety Alert**: I cannot provide assistance with requests involving harmful or illegal activities."
                 detected_category = "Safety Block"
             else:
-                # Step 2: Auto-classify category
                 detected_category, confidence = classify_category(user_input)
-
                 if not detected_category:
-                    response = "⚠️ Unable to classify your question. Please try asking a legal question related to Constitutional, Civil, Environmental, or Labor Law."
+                    response = "⚠️ Unable to classify your question."
                     detected_category = "Unknown"
                 else:
-                    # Step 3: Get answer from detected category
                     response, detected_category = find_answer(user_input, detected_category)
-
-                    # Prepend category badge to response
+                    
+                    # Formatting
                     category_emoji = {
-                        "Constitutional Law": "⚖️",
-                        "Civil Law": "📜",
-                        "Environmental Law": "🌿",
-                        "Labor Law": "👷"
+                        "Constitutional Law": "⚖️", "Civil Law": "📜",
+                        "Environmental Law": "🌿", "Labor Law": "👷"
                     }
                     emoji = category_emoji.get(detected_category, "📚")
                     response = f"**{emoji} {detected_category}**\n\n{response}"
 
-        # Add assistant response
-        st.session_state.chat_history.append(("assistant", response))
+        # Display Assistant Response
+        with st.chat_message("assistant"):
+            st.markdown(response)
 
-        # Save to MongoDB
-        save_chat_history(
+        # 9. SAVE TO MONGODB (The Session Logic)
+        is_first_message = len(messages) == 0
+        
+        save_chat_message(
+            st.session_state.active_session_id,
             st.session_state.username,
             detected_category,
             user_input,
             response
         )
 
-        # Clean up voice input session state
-        if "transcribed_text" in st.session_state:
-            del st.session_state.transcribed_text
-        if "edit_mode" in st.session_state:
-            del st.session_state.edit_mode
+        # 10. Auto-Title Generation (If first message)
+        if is_first_message:
+            new_title = generate_chat_title(user_input)
+            update_session_title(st.session_state.active_session_id, new_title)
+            # Force rerun to update the Sidebar Title immediately
+            st.rerun()
 
-        # Increment counter to reset audio recorder for next question
+        # Clean up session state for voice
+        if "transcribed_text" in st.session_state: del st.session_state.transcribed_text
+        if "edit_mode" in st.session_state: del st.session_state.edit_mode
         st.session_state.voice_input_counter += 1
 
         st.rerun()
-
         
 
 # ---------------------------
